@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nliberk
+  namespace: noah.liberka
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: nliberk.dhbw.schoeppi5.de
+      http:
+        paths:
+          - backend:
+              service:
+                name: klausurapp
+                port:
+                  number: 8080
+            path: /
+            pathType: Prefix
